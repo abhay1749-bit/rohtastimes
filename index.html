@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>RohtasTimes | रोहतास की ताज़ा खबरें</title>
+<meta name="description" content="RohtasTimes — रोहतास, सासाराम और बिहार की ताज़ा खबरें। Jobs, Admit Card और Result।">
+<style>
+:root{--red:#d71920;--dark:#17191d;--muted:#777;--line:#e4e4e4;--bg:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:#222;font-family:Arial,"Noto Sans Devanagari",sans-serif}
+a{text-decoration:none;color:inherit}
+.top{height:4px;background:var(--red)}
+.header{background:#fff;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:20}
+.head{max-width:1100px;margin:auto;height:64px;padding:0 14px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:27px;font-weight:900;color:var(--red);letter-spacing:-.7px}
+.tag{font-size:10px;color:#777;margin-top:2px}
+.search{width:40px;height:40px;border:1px solid #ddd;border-radius:50%;display:grid;place-items:center;font-size:19px}
+.nav{border-bottom:1px solid #ddd;background:#fff;overflow:auto;white-space:nowrap}
+.navin{max-width:1100px;margin:auto;display:flex}
+.nav a{padding:12px 15px;font-size:14px;font-weight:800}
+.nav a.active{color:var(--red);border-bottom:3px solid var(--red)}
+.ticker{background:#f7f7f7;border-bottom:1px solid #ddd;height:39px;display:flex;align-items:center}
+.ticker b{background:var(--red);color:#fff;padding:11px 13px;font-size:12px}
+.ticker span{font-size:12px;padding-left:12px;white-space:nowrap;overflow:hidden}
+.wrap{max-width:900px;margin:auto;padding:0 14px}
+.pageTitle{padding:18px 0 10px;border-bottom:3px solid #222}
+.pageTitle h1{margin:0;font-size:24px}
+.pageTitle p{margin:4px 0 0;color:#888;font-size:12px}
+.newsList{display:block}
+.news{
+ display:grid;grid-template-columns:1fr 165px;gap:15px;
+ padding:18px 0;border-bottom:1px solid var(--line);
+ min-height:155px;
+}
+.newsText h2{font-size:22px;line-height:1.38;margin:0 0 9px;font-weight:800}
+.newsText p{font-size:13px;color:#666;line-height:1.55;margin:0 0 8px}
+.meta{font-size:12px;color:#8b8b8b}
+.cat{color:var(--red);font-weight:800}
+.thumb{width:165px;height:105px;border-radius:3px;overflow:hidden;display:grid;place-items:center;color:#fff;font-size:18px;font-weight:900;background:linear-gradient(135deg,#27313d,#9b1b22)}
+.thumb.rohtas{background:linear-gradient(135deg,#172b4d,#d71920)}
+.thumb.bihar{background:linear-gradient(135deg,#374151,#8b1e24)}
+.thumb.jobs{background:linear-gradient(135deg,#075985,#16a34a)}
+.thumb.result{background:linear-gradient(135deg,#4c1d95,#d97706)}
+.thumb.edu{background:linear-gradient(135deg,#0f766e,#2563eb)}
+.sectionBar{margin:20px 0 0;padding:12px 0;border-bottom:2px solid #222;font-size:20px;font-weight:900}
+.portalGrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:15px 0 30px}
+.portal{
+ border:1px solid #ddd;border-radius:8px;padding:15px;background:#fff;
+}
+.portal h3{margin:0 0 6px;font-size:19px}.portal p{margin:0 0 12px;color:#777;font-size:12px}
+.portal a{display:inline-block;background:var(--red);color:#fff;padding:8px 12px;border-radius:4px;font-size:12px;font-weight:800}
+.jobnav{display:flex;gap:7px;overflow:auto;padding:12px 0}
+.jobnav button{border:1px solid #ddd;background:#fff;border-radius:18px;padding:7px 11px;white-space:nowrap;font-weight:700}
+.jobnav button.active{background:var(--red);color:#fff;border-color:var(--red)}
+.empty{padding:20px 0;color:#888}
+.footer{background:#17191d;color:#fff;padding:30px 16px 90px;margin-top:20px}
+.footerin{max-width:900px;margin:auto}.footer p{color:#bbb;font-size:12px;line-height:1.7}
+.bottom{
+display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;
+z-index:50;height:64px;padding-bottom:env(safe-area-inset-bottom)
+}
+.bottom a{flex:1;text-align:center;font-size:11px;color:#555;padding-top:7px}
+.bottom .ico{font-size:22px;line-height:26px;display:block}
+.bottom a.active{color:var(--red)}
+@media(max-width:650px){
+ .head{height:60px}.logo{font-size:25px}
+ .nav a{padding:11px 12px;font-size:13px}
+ .wrap{padding:0 13px}
+ .pageTitle h1{font-size:22px}
+ .news{grid-template-columns:1fr 115px;gap:10px;padding:15px 0;min-height:0}
+ .newsText h2{font-size:18px;line-height:1.38;margin-bottom:6px}
+ .newsText p{display:none}
+ .thumb{width:115px;height:78px;font-size:14px}
+ .meta{font-size:10px}
+ .portalGrid{grid-template-columns:1fr}
+ .bottom{display:flex}
+ .ticker{height:36px}
+ .ticker b{padding:10px;font-size:10px}
+ .ticker span{font-size:10px}
+}
+</style>
+</head>
+<body>
+<div class="top"></div>
+
+<header class="header">
+ <div class="head">
+  <a href="#home">
+   <div class="logo">RohtasTimes</div>
+   <div class="tag">रोहतास की आवाज़ • खबर सबसे पहले</div>
+  </a>
+  <div class="search">⌕</div>
+ </div>
+</header>
+
+<nav class="nav">
+ <div class="navin">
+  <a class="active" href="#home">होम</a>
+  <a href="#rohtas">रोहतास</a>
+  <a href="#bihar">बिहार</a>
+  <a href="#jobs">Jobs</a>
+  <a href="#admitcard">Admit Card</a>
+  <a href="#result">Result</a>
+  <a href="#education">शिक्षा</a>
+ </div>
+</nav>
+
+<div class="ticker"><b>BREAKING</b><span>रोहतास और सासाराम की ताज़ा खबरें • Jobs • Admit Card • Result</span></div>
+
+<main class="wrap" id="home">
+ <div class="pageTitle">
+  <h1>📰 ताज़ा खबरें</h1>
+  <p>Rohtas, Sasaram और बिहार की Latest News</p>
+ </div>
+
+ <section class="newsList" id="newsList"></section>
+
+ <div class="sectionBar" id="jobs">💼 Jobs</div>
+ <div class="jobnav">
+  <button class="active" onclick="setJob('All',this)">सभी</button>
+  <button onclick="setJob('Government',this)">सरकारी</button>
+  <button onclick="setJob('Private',this)">प्राइवेट</button>
+  <button onclick="setJob('Railway',this)">रेलवे</button>
+  <button onclick="setJob('Police',this)">पुलिस</button>
+  <button onclick="setJob('Teaching',this)">शिक्षक</button>
+  <button onclick="setJob('Banking',this)">बैंक</button>
+ </div>
+ <div id="jobsList"></div>
+
+ <div class="portalGrid">
+  <div class="portal" id="admitcard">
+   <h3>📝 Admit Card</h3>
+   <p>नई परीक्षा और admit card की जानकारी</p>
+   <a href="#admitcard">सभी Admit Card →</a>
+  </div>
+  <div class="portal" id="result">
+   <h3>🏆 Result</h3>
+   <p>Latest exam और recruitment results</p>
+   <a href="#result">सभी Results →</a>
+  </div>
+ </div>
+
+ <div class="sectionBar" id="rohtas">📍 Rohtas News</div>
+ <section class="newsList" id="rohtasList"></section>
+
+ <div class="sectionBar" id="bihar">🇮🇳 Bihar News</div>
+ <section class="newsList" id="biharList"></section>
+
+ <div class="sectionBar" id="education">🎓 Education</div>
+ <section class="newsList" id="educationList"></section>
+</main>
+
+<footer class="footer">
+ <div class="footerin">
+  <h3>RohtasTimes</h3>
+  <p>रोहतास की आवाज़ — स्थानीय खबर, रोजगार, शिक्षा और बिहार की ताज़ा जानकारी।</p>
+  <p>© 2026 RohtasTimes. All Rights Reserved.</p>
+ </div>
+</footer>
+
+<nav class="bottom">
+ <a class="active" href="#home"><span class="ico">⌂</span>होम</a>
+ <a href="#rohtas"><span class="ico">📰</span>न्यूज़</a>
+ <a href="#jobs"><span class="ico">💼</span>Jobs</a>
+ <a href="#result"><span class="ico">🏆</span>Result</a>
+ <a href="#admitcard"><span class="ico">📝</span>Admit</a>
+</nav>
+
+<script>
+const data=[
+ {cat:'Rohtas',title:'सासाराम और रोहतास की ताज़ा स्थानीय खबरें',text:'जिले की महत्वपूर्ण गतिविधियों और घटनाओं की जानकारी।',type:'rohtas'},
+ {cat:'Rohtas',title:'रोहतास की बड़ी खबरें एक नजर में',text:'ग्राउंड रिपोर्ट और स्थानीय अपडेट।',type:'rohtas'},
+ {cat:'Bihar',title:'बिहार की आज की प्रमुख खबरें',text:'राज्य के अलग-अलग जिलों से महत्वपूर्ण अपडेट।',type:'bihar'},
+ {cat:'Bihar',title:'बिहार में नई योजनाओं और फैसलों की जानकारी',text:'राज्य से जुड़ी ताज़ा जानकारी।',type:'bihar'},
+ {cat:'Education',title:'परीक्षा, एडमिशन और शिक्षा से जुड़ी खबरें',text:'छात्रों के लिए जरूरी अपडेट।',type:'edu'},
+ {cat:'Jobs',title:'सरकारी नौकरी की नई भर्ती',text:'योग्यता, आवेदन तिथि और भर्ती की जानकारी।',job:'Government',type:'jobs'},
+ {cat:'Jobs',title:'Railway Recruitment की नई वैकेंसी',text:'रेलवे भर्ती से जुड़ी जानकारी।',job:'Railway',type:'jobs'},
+ {cat:'Jobs',title:'Police Recruitment Update',text:'पुलिस भर्ती की नई जानकारी।',job:'Police',type:'jobs'},
+ {cat:'Jobs',title:'Teacher Vacancy Update',text:'शिक्षक भर्ती से जुड़ी जानकारी।',job:'Teaching',type:'jobs'},
+ {cat:'Jobs',title:'Banking Jobs Update',text:'बैंकिंग क्षेत्र की नई नौकरियां।',job:'Banking',type:'jobs'},
+ {cat:'Jobs',title:'Private Jobs Update',text:'Private sector में नई vacancies।',job:'Private',type:'jobs'}
+];
+let jobFilter='All';
+
+function newsCard(n){
+ return `<article class="news">
+  <div class="newsText"><div class="meta"><span class="cat">${n.cat}</span> &nbsp;|&nbsp; आज</div>
+  <h2>${n.title}</h2><p>${n.text}</p></div>
+  <div class="thumb ${n.type}">${n.cat==='Jobs'?'JOBS':n.cat==='Education'?'EDUCATION':n.cat.toUpperCase()}</div>
+ </article>`
+}
+function render(){
+ let normal=data.filter(n=>n.cat!=='Jobs');
+ document.getElementById('newsList').innerHTML=normal.slice(0,7).map(newsCard).join('');
+ document.getElementById('rohtasList').innerHTML=data.filter(n=>n.cat==='Rohtas').map(newsCard).join('');
+ document.getElementById('biharList').innerHTML=data.filter(n=>n.cat==='Bihar').map(newsCard).join('');
+ document.getElementById('educationList').innerHTML=data.filter(n=>n.cat==='Education').map(newsCard).join('');
+ document.getElementById('jobsList').innerHTML=data.filter(n=>n.cat==='Jobs'&&(jobFilter==='All'||n.job===jobFilter)).map(newsCard).join('');
+}
+function setJob(x,btn){jobFilter=x;document.querySelectorAll('.jobnav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');render()}
+render();
+</script>
+</body>
+</html>
