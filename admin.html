@@ -253,9 +253,14 @@ async function publish(){
      source:$('source').value.trim(),
      is_published:$('published').checked
    };
+let error;
 
-   const {error}=await sb.from('news').insert(row);
-
+if(editId){
+  ({error}=await sb.from('news').update(row).eq('id',editId));
+  editId=null;
+}else{
+  ({error}=await sb.from('news').insert(row));
+}
    msg(error?error.message:'✅ खबर publish हो गई।');
 
    if(!error){
@@ -290,7 +295,9 @@ async function loadList(){
        ? `<video src="${esc(media)}" controls style="max-width:100%;max-height:180px"></video>`
        : `<img src="${esc(media)}" style="max-width:100%;max-height:180px;border-radius:8px">`) : ''}
      <br><br>
-     <button class="btn danger" onclick="del(${n.id})">Delete</button>
+   <br><br>
+<button class="btn" onclick="editNews('${n.id}')">✏️ Edit</button>
+<button class="btn danger" onclick="del('${n.id}')">🗑️ Delete</button>
    </div>`;
  }).join('')||'अभी कोई खबर नहीं।';
 }
@@ -300,7 +307,39 @@ function esc(v){
    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
  }[m]));
 }
+let editId=null;
 
+async function editNews(id){
+  const {data,error}=await sb
+    .from('news')
+    .select('*')
+    .eq('id',id)
+    .single();
+
+  if(error || !data){
+    return msg('खबर नहीं मिली');
+  }
+
+  editId=id;
+
+  $('title').value=data.title || '';
+  $('slug').value=data.slug || '';
+  $('seoTitle').value=data.seo_title || '';
+  $('metaDescription').value=data.meta_description || '';
+  $('focusKeyword').value=data.focus_keyword || '';
+  $('canonicalUrl').value=data.canonical_url || '';
+  $('summary').value=data.summary || '';
+  $('content').value=data.content || '';
+  $('category').value=data.category || '';
+  $('jobType').value=data.job_type || '';
+  $('image').value=data.image_url || '';
+  $('source').value=data.source || '';
+  $('published').checked=data.is_published;
+
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  msg('✏️ खबर Edit mode में है');
+   }
 async function del(id){
  if(!confirm('यह खबर delete करें?'))return;
  const {error}=await sb.from('news').delete().eq('id',id);
