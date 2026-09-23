@@ -98,15 +98,17 @@ async function loadNews(){
  allNews=data||[];render();
 }
 document.addEventListener('click',function(e){
-  const card=e.target.closest('article.newsCard');
+  const card=e.target.closest('article');
   if(!card)return;
 
-  const title=card.querySelector('h2')?.innerText;
-  const news=allNews.find(n=>n.title===title);
+  const text=card.innerText || '';
+  const news=allNews.find(n=>text.includes(n.title));
 
   if(news && news.slug){
     location.href='article.html?slug='+encodeURIComponent(news.slug);
   }
-});loadNews();
+});
+
+loadNews();
 </script>
 </body></html>
