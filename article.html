@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="hi">
 <head>
@@ -15,12 +16,14 @@ body{
   margin:0;
   background:#f5f5f5;
   color:#222;
-  font-family:Arial,sans-serif;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
 }
+
 .top{
   height:4px;
   background:#d71920;
 }
+
 .wrap{
   max-width:900px;
   margin:auto;
@@ -28,50 +31,225 @@ body{
   min-height:100vh;
   padding:20px;
 }
+
 .logo{
   font-size:28px;
   font-weight:800;
   color:#d71920;
   margin-bottom:20px;
 }
+
 .category{
   color:#d71920;
   font-weight:bold;
   margin-bottom:8px;
 }
+
 h1{
   font-size:32px;
   line-height:1.35;
   margin:8px 0 12px;
 }
+
 .meta{
   color:#777;
   font-size:14px;
   margin-bottom:18px;
 }
+
 .hero{
   width:100%;
   max-height:520px;
   object-fit:cover;
   border-radius:8px;
 }
+
 .summary{
   font-size:19px;
   font-weight:600;
   line-height:1.7;
   margin-top:20px;
 }
+
 .content{
   font-size:18px;
   line-height:1.9;
   white-space:pre-wrap;
+  margin-top:15px;
 }
+
 .back{
   display:inline-block;
   margin:20px 0;
   color:#d71920;
   text-decoration:none;
   font-weight:bold;
+}
+
+
+/* ACTION BUTTONS */
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:22px 0;
+  padding:15px 0;
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+}
+
+.action{
+  border:1px solid #ddd;
+  background:#fff;
+  border-radius:22px;
+  padding:9px 13px;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:700;
+}
+
+.like.active{
+  color:#d71920;
+  background:#fff0f1;
+  border-color:#f0b5b8;
+}
+
+.whatsapp{
+  color:#128c7e;
+}
+
+.copy{
+  color:#555;
+}
+
+
+/* SOCIAL MEDIA */
+
+.socialBox{
+  margin-top:30px;
+  padding:20px 15px;
+  background:#fafafa;
+  border:1px solid #ddd;
+  border-radius:10px;
+  text-align:center;
+}
+
+.socialBox h2{
+  margin:0 0 7px;
+  font-size:21px;
+}
+
+.socialBox p{
+  margin:0 0 15px;
+  color:#777;
+  font-size:13px;
+}
+
+.socialButtons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.socialBtn{
+  display:inline-block;
+  color:#fff;
+  padding:10px 18px;
+  border-radius:7px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.instagram{
+  background:#d62976;
+}
+
+.facebook{
+  background:#1877f2;
+}
+
+.youtube{
+  background:#ff0000;
+}
+
+
+/* FOOTER */
+
+.footer{
+  background:#17191d;
+  color:#fff;
+  padding:25px 20px 50px;
+}
+
+.footerin{
+  max-width:900px;
+  margin:auto;
+}
+
+.footer p{
+  color:#bbb;
+  font-size:12px;
+  line-height:1.7;
+}
+
+.footerSocial{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.footerSocial a{
+  border:1px solid #444;
+  padding:8px 11px;
+  border-radius:6px;
+  font-size:12px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .wrap{
+    padding:15px;
+  }
+
+  h1{
+    font-size:27px;
+  }
+
+  .summary{
+    font-size:17px;
+  }
+
+  .content{
+    font-size:16px;
+    line-height:1.85;
+  }
+
+  .hero{
+    max-height:350px;
+  }
+
+  .actions{
+    gap:7px;
+  }
+
+  .action{
+    font-size:13px;
+    padding:8px 11px;
+  }
+
+  .socialButtons{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .socialBtn{
+    width:auto;
+  }
 }
 </style>
 </head>
@@ -82,15 +260,65 @@ h1{
 
 <main class="wrap">
 
-<a class="back" href="index.html">← वापस खबरों पर जाएं</a>
+<a class="back" href="index.html">
+← वापस खबरों पर जाएं
+</a>
 
-<div class="logo">RohtasTimes</div>
+<div class="logo">
+RohtasTimes
+</div>
 
 <div id="article">
   खबर लोड हो रही है...
 </div>
 
 </main>
+
+
+<footer class="footer">
+
+<div class="footerin">
+
+<h3>RohtasTimes</h3>
+
+<p>
+रोहतास की आवाज़ — स्थानीय खबर, रोजगार,
+शिक्षा, व्यापार और बिहार की ताज़ा जानकारी।
+</p>
+
+<div class="footerSocial">
+
+<a
+href="https://www.instagram.com/rohtastimes/"
+target="_blank"
+rel="noopener">
+📸 Instagram
+</a>
+
+<a
+href="https://www.facebook.com/share/1C1TpdKFAN/"
+target="_blank"
+rel="noopener">
+👍 Facebook
+</a>
+
+<a
+href="https://youtube.com/@rohtastimes"
+target="_blank"
+rel="noopener">
+▶️ YouTube
+</a>
+
+</div>
+
+<p>
+© 2026 RohtasTimes. All Rights Reserved.
+</p>
+
+</div>
+
+</footer>
+
 
 <script>
 
@@ -101,8 +329,14 @@ const clientReady =
   !SUPABASE_PUBLISHABLE_KEY.startsWith('PASTE_');
 
 const sb = clientReady
-  ? supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY)
+  ? supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_PUBLISHABLE_KEY
+    )
   : null;
+
+
+/* ================= ESCAPE ================= */
 
 function esc(v){
   return String(v || '').replace(/[&<>"']/g,m=>({
@@ -114,85 +348,384 @@ function esc(v){
   }[m]));
 }
 
-async function loadArticle(){
 
-  const id =
+/* ================= NEWS ID ================= */
+
+const newsId =
   new URLSearchParams(location.search).get('id');
 
-if(!id){
-    document.getElementById('article').innerHTML =
+
+/* ================= LIKE ================= */
+
+function likeKey(){
+  return 'rohtas_like_' + newsId;
+}
+
+function likeCountKey(){
+  return 'rohtas_like_count_' + newsId;
+}
+
+function getLikeCount(){
+  return parseInt(
+    localStorage.getItem(likeCountKey()) || '0'
+  );
+}
+
+function isLiked(){
+  return localStorage.getItem(likeKey()) === '1';
+}
+
+function toggleLike(){
+
+  let count = getLikeCount();
+
+  if(isLiked()){
+
+    localStorage.removeItem(likeKey());
+
+    count = Math.max(0,count-1);
+
+  }else{
+
+    localStorage.setItem(likeKey(),'1');
+
+    count++;
+
+  }
+
+  localStorage.setItem(
+    likeCountKey(),
+    count
+  );
+
+  updateLikeButton();
+}
+
+
+function updateLikeButton(){
+
+  const button =
+    document.getElementById('likeBtn');
+
+  if(!button) return;
+
+  const liked = isLiked();
+
+  const count = getLikeCount();
+
+  button.classList.toggle(
+    'active',
+    liked
+  );
+
+  button.innerHTML =
+    (liked ? '❤️' : '🤍') +
+    ' Like ' +
+    count;
+}
+
+
+/* ================= SHARE ================= */
+
+async function shareNews(){
+
+  const title =
+    document.getElementById('articleTitle')
+    ?.innerText ||
+    'RohtasTimes';
+
+  const url = location.href;
+
+  try{
+
+    if(navigator.share){
+
+      await navigator.share({
+        title:title,
+        text:title + ' | RohtasTimes',
+        url:url
+      });
+
+    }else{
+
+      await navigator.clipboard.writeText(url);
+
+      alert('🔗 खबर का लिंक कॉपी हो गया।');
+
+    }
+
+  }catch(error){
+
+    console.log(error);
+
+  }
+}
+
+
+/* ================= WHATSAPP ================= */
+
+function whatsappShare(){
+
+  const title =
+    document.getElementById('articleTitle')
+    ?.innerText ||
+    'RohtasTimes';
+
+  const text =
+    title +
+    '\n\n' +
+    location.href;
+
+  window.open(
+    'https://wa.me/?text=' +
+    encodeURIComponent(text),
+    '_blank'
+  );
+}
+
+
+/* ================= COPY ================= */
+
+async function copyLink(){
+
+  try{
+
+    await navigator.clipboard.writeText(
+      location.href
+    );
+
+    const button =
+      document.getElementById('copyBtn');
+
+    button.innerHTML =
+      '✅ Link Copied';
+
+    setTimeout(function(){
+
+      button.innerHTML =
+        '📋 Copy Link';
+
+    },1800);
+
+  }catch(error){
+
+    alert(
+      'Link copy नहीं हो पाया।'
+    );
+
+  }
+}
+
+
+/* ================= LOAD ARTICLE ================= */
+
+async function loadArticle(){
+
+  if(!newsId){
+
+    document.getElementById(
+      'article'
+    ).innerHTML =
       '<h2>खबर नहीं मिली</h2>';
+
     return;
   }
+
 
   if(!sb){
-    document.getElementById('article').innerHTML =
+
+    document.getElementById(
+      'article'
+    ).innerHTML =
       '<h2>Database connection नहीं हुआ</h2>';
+
     return;
   }
 
-const {data,error} = await sb
-  .from('news')
-  .select('*')
-  .eq('id',new URLSearchParams(location.search).get('id'))
-  .eq('is_published',true)
-  .single();
+
+  const {data,error} =
+    await sb
+    .from('news')
+    .select('*')
+    .eq('id',newsId)
+    .eq('is_published',true)
+    .single();
+
 
   if(error || !data){
-    document.getElementById('article').innerHTML =
+
+    document.getElementById(
+      'article'
+    ).innerHTML =
       '<h2>यह खबर उपलब्ध नहीं है</h2>';
+
     return;
   }
+
+
+  /* SEO */
 
   document.title =
     data.seo_title ||
     data.title ||
     'RohtasTimes News';
 
-  document.getElementById('metaDescription').content =
+
+  document.getElementById(
+    'metaDescription'
+  ).content =
     data.meta_description ||
     data.summary ||
     '';
 
-  const date = data.published_at
-    ? new Date(data.published_at).toLocaleDateString('hi-IN')
-    : '';
+
+  const date =
+    data.published_at
+    ?
+    new Date(
+      data.published_at
+    ).toLocaleDateString('hi-IN')
+    :
+    '';
+
+
+  /* IMAGE */
 
   let image = '';
 
   if(data.image_url){
+
     image =
-      `<img class="hero"
-       src="${esc(data.image_url)}"
-       alt="${esc(data.title)}">`;
+      `<img
+        class="hero"
+        src="${esc(data.image_url)}"
+        alt="${esc(data.title)}">`;
+
   }
 
-  document.getElementById('article').innerHTML = `
+
+  /* ARTICLE */
+
+  document.getElementById(
+    'article'
+  ).innerHTML = `
 
     <div class="category">
       ${esc(data.category)}
     </div>
 
-    <h1>${esc(data.title)}</h1>
+    <h1 id="articleTitle">
+      ${esc(data.title)}
+    </h1>
 
     <div class="meta">
       ${date}
-      ${data.source ? ' | '+esc(data.source) : ''}
+      ${data.source
+        ? ' | ' + esc(data.source)
+        : ''}
     </div>
 
     ${image}
+
 
     <div class="summary">
       ${esc(data.summary)}
     </div>
 
+
+    <!-- ACTION BUTTONS -->
+
+    <div class="actions">
+
+      <button
+        id="likeBtn"
+        class="action like"
+        onclick="toggleLike()">
+        🤍 Like 0
+      </button>
+
+
+      <button
+        class="action"
+        onclick="shareNews()">
+        📤 Share
+      </button>
+
+
+      <button
+        class="action whatsapp"
+        onclick="whatsappShare()">
+        🟢 WhatsApp
+      </button>
+
+
+      <button
+        id="copyBtn"
+        class="action copy"
+        onclick="copyLink()">
+        📋 Copy Link
+      </button>
+
+    </div>
+
+
     <div class="content">
       ${esc(data.content)}
     </div>
 
+
+    <!-- SOCIAL MEDIA -->
+
+    <section class="socialBox">
+
+      <h2>
+        📱 RohtasTimes से जुड़ें
+      </h2>
+
+      <p>
+        ताज़ा खबरों और वीडियो के लिए हमें Follow करें
+      </p>
+
+
+      <div class="socialButtons">
+
+        <a
+          class="socialBtn instagram"
+          href="https://www.instagram.com/rohtastimes/"
+          target="_blank"
+          rel="noopener">
+          📸 Instagram
+        </a>
+
+
+        <a
+          class="socialBtn facebook"
+          href="https://www.facebook.com/share/1C1TpdKFAN/"
+          target="_blank"
+          rel="noopener">
+          👍 Facebook
+        </a>
+
+
+        <a
+          class="socialBtn youtube"
+          href="https://youtube.com/@rohtastimes"
+          target="_blank"
+          rel="noopener">
+          ▶️ YouTube
+        </a>
+
+      </div>
+
+    </section>
+
   `;
 
+
+  updateLikeButton();
+
 }
+
 
 loadArticle();
 
