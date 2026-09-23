@@ -104,8 +104,8 @@ document.addEventListener('click',function(e){
   const text=card.innerText || '';
   const news=allNews.find(n=>text.includes(n.title));
 
-  if(news && news.slug){
-    location.href='article.html?slug='+encodeURIComponent(news.slug);
+  if(news && news.id){
+    location.href='article.html?id='+encodeURIComponent(news.id);
   }
 });
 
