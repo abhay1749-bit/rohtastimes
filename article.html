@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>RohtasTimes News</title>
+<meta name="description" id="metaDescription" content="RohtasTimes की ताजा खबरें">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+
+<style>
+body{
+  margin:0;
+  background:#f5f5f5;
+  color:#222;
+  font-family:Arial,sans-serif;
+}
+.top{
+  height:4px;
+  background:#d71920;
+}
+.wrap{
+  max-width:900px;
+  margin:auto;
+  background:#fff;
+  min-height:100vh;
+  padding:20px;
+}
+.logo{
+  font-size:28px;
+  font-weight:800;
+  color:#d71920;
+  margin-bottom:20px;
+}
+.category{
+  color:#d71920;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+h1{
+  font-size:32px;
+  line-height:1.35;
+  margin:8px 0 12px;
+}
+.meta{
+  color:#777;
+  font-size:14px;
+  margin-bottom:18px;
+}
+.hero{
+  width:100%;
+  max-height:520px;
+  object-fit:cover;
+  border-radius:8px;
+}
+.summary{
+  font-size:19px;
+  font-weight:600;
+  line-height:1.7;
+  margin-top:20px;
+}
+.content{
+  font-size:18px;
+  line-height:1.9;
+  white-space:pre-wrap;
+}
+.back{
+  display:inline-block;
+  margin:20px 0;
+  color:#d71920;
+  text-decoration:none;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top"></div>
+
+<main class="wrap">
+
+<a class="back" href="index.html">← वापस खबरों पर जाएं</a>
+
+<div class="logo">RohtasTimes</div>
+
+<div id="article">
+  खबर लोड हो रही है...
+</div>
+
+</main>
+
+<script>
+
+const clientReady =
+  SUPABASE_URL &&
+  SUPABASE_PUBLISHABLE_KEY &&
+  !SUPABASE_URL.startsWith('PASTE_') &&
+  !SUPABASE_PUBLISHABLE_KEY.startsWith('PASTE_');
+
+const sb = clientReady
+  ? supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY)
+  : null;
+
+function esc(v){
+  return String(v || '').replace(/[&<>"']/g,m=>({
+    '&':'&amp;',
+    '<':'&lt;',
+    '>':'&gt;',
+    '"':'&quot;',
+    "'":'&#39;'
+  }[m]));
+}
+
+async function loadArticle(){
+
+  const slug =
+    new URLSearchParams(location.search).get('slug');
+
+  if(!slug){
+    document.getElementById('article').innerHTML =
+      '<h2>खबर नहीं मिली</h2>';
+    return;
+  }
+
+  if(!sb){
+    document.getElementById('article').innerHTML =
+      '<h2>Database connection नहीं हुआ</h2>';
+    return;
+  }
+
+  const {data,error} = await sb
+    .from('news')
+    .select('*')
+    .eq('slug',slug)
+    .eq('is_published',true)
+    .single();
+
+  if(error || !data){
+    document.getElementById('article').innerHTML =
+      '<h2>यह खबर उपलब्ध नहीं है</h2>';
+    return;
+  }
+
+  document.title =
+    data.seo_title ||
+    data.title ||
+    'RohtasTimes News';
+
+  document.getElementById('metaDescription').content =
+    data.meta_description ||
+    data.summary ||
+    '';
+
+  const date = data.published_at
+    ? new Date(data.published_at).toLocaleDateString('hi-IN')
+    : '';
+
+  let image = '';
+
+  if(data.image_url){
+    image =
+      `<img class="hero"
+       src="${esc(data.image_url)}"
+       alt="${esc(data.title)}">`;
+  }
+
+  document.getElementById('article').innerHTML = `
+
+    <div class="category">
+      ${esc(data.category)}
+    </div>
+
+    <h1>${esc(data.title)}</h1>
+
+    <div class="meta">
+      ${date}
+      ${data.source ? ' | '+esc(data.source) : ''}
+    </div>
+
+    ${image}
+
+    <div class="summary">
+      ${esc(data.summary)}
+    </div>
+
+    <div class="content">
+      ${esc(data.content)}
+    </div>
+
+  `;
+
+}
+
+loadArticle();
+
+</script>
+
+</body>
+</html>
