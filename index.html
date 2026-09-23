@@ -97,6 +97,16 @@ async function loadNews(){
  if(error){console.error(error);document.getElementById('newsList').innerHTML='<div class="empty">News database connect नहीं हुआ। config.js check करें।</div>';return}
  allNews=data||[];render();
 }
-loadNews();
+document.addEventListener('click',function(e){
+  const card=e.target.closest('article.newsCard');
+  if(!card)return;
+
+  const title=card.querySelector('h2')?.innerText;
+  const news=allNews.find(n=>n.title===title);
+
+  if(news && news.slug){
+    location.href='article.html?slug='+encodeURIComponent(news.slug);
+  }
+});loadNews();
 </script>
 </body></html>
